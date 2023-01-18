@@ -1,0 +1,137 @@
+.container .mt-160 {
+    margin-top: 160px;
+}
+
+.container .card-container {
+    position: relative;
+    height: 253px;
+    width: 434px;
+    margin: 0 auto -150px auto;
+}
+
+.container .card-container .front {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: linear-gradient(45deg, black, rgb(58, 56, 56));
+    background-repeat: no-repeat;
+    backface-visibility: hidden;
+    box-shadow: 0 15px 25px rgb(0, 0, 0, .2);
+    padding: 20px;
+    transform: perspective(1000px) rotateY(0deg);
+    transition: transform .4s ease-out;
+}
+
+.container .card-container .front .image-logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+
+.container .card-container .front .image-logo img {
+    height: 50px;
+}
+
+.container .card-container .front .image-logo .text-bold {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.container .card-container .front .text-card-number {
+    padding: 7px 0;
+    font-size: 22px;
+    color: aliceblue;
+}
+
+.container .card-container .front .flexbox {
+    display: flex;
+    margin-top: 17px;
+}
+
+.container .card-container .front .flexbox .box:nth-child(1) {
+    margin-right: auto;
+}
+
+.container .card-container .front .flexbox .box:nth-child(1) {
+   font-size: 15px;
+}
+
+.container .card-container .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(45deg, black, rgb(58, 56, 56));
+    background-repeat: no-repeat;
+    box-shadow: 0 15px 25px rgb(0, 0, 0, .2);
+    border-radius: 10px;
+    padding: 20px 0;
+    backface-visibility: hidden;
+    transform: perspective(1000px) rotateY(180deg);
+    transition: transform .4s ease-out;
+
+}
+
+.container .card-container .back .stripe {
+  background: #000000;
+  width: 100%;
+  margin: 10px 0;
+  height: 50px;
+}
+
+.container .card-container .back .box {
+  padding: 0 20px;
+}
+
+.container .card-container .back .box span{
+    font-size: 15px;
+}
+
+.container .card-container .back .box .valid-cvv {
+ height: 50px;
+ padding: 10px;
+ margin-top: 5px;
+ color: #333333;
+ background: #ffffff;
+ border: 5px;
+ width: 100%;
+}
+
+.container .card-container .back .box .text-bold {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: right !important;    
+}
+
+.roteFront {
+    transform: perspective(1000px) rotateY(-180deg) !important;
+}
+.roteBack {
+    transform: perspective(1000px) rotateY(0deg) !important;
+}
+
+
+@media only screen and (max-width: 412px) {
+    .container .card-container {
+        position: relative;
+        min-height: 257px;
+        min-width: 476px;
+        margin: 0 auto -150px auto;
+    }
+
+    .container .card-container .front {
+        height: 92%;
+        width: 69%;
+    }
+
+    .container .card-container .back {
+        height: 92%;
+        width: 69%;
+    }
+}
