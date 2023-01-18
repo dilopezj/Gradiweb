@@ -35,7 +35,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className='App-header'></div>
+      <div className='App-header'>
+        <h1>Logo Bank</h1>
+      </div>
       <div className='App-body'>
         <Header handleAddCard={handleAddCard} />
         <ListCard cards={cards}  handleCardRemove={handleCardRemove} />
