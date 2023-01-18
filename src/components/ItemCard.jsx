@@ -1,6 +1,6 @@
 import React, { useId } from 'react';
 
-function ItemCard({ card, handleCardChecked, handleCardRemove }) {
+function ItemCard({ card, handleCardRemove }) {
   const id = useId();
 
   return (<tr className='ItemCard text-center'>

@@ -1,15 +1,14 @@
 
 import { useEffect, useState } from 'react';
-import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 import './App.css';
 import Header from './components/Header';
 import ListCard from './components/ListCard';
+import Footer from './components/Footer';
 
 function App() {
   const [cards, setCards] = useState([]);
   const [preventEmptySave, setPreventEmptySave] = useState(true);
-  const [autoAnimate] = useAutoAnimate();
 
   const saveCards = () => {
     if (cards.length < 1 && preventEmptySave) { return; }
@@ -20,7 +19,6 @@ function App() {
   const handleAddCard = card => {
     setCards(prevCards => [card, ...prevCards]);
   };
-
 
   const handleCardRemove = id => {
     setPreventEmptySave(false);
@@ -37,10 +35,12 @@ function App() {
 
   return (
     <div className="App">
+      <div className='App-header'></div>
       <div className='App-body'>
         <Header handleAddCard={handleAddCard} />
         <ListCard cards={cards}  handleCardRemove={handleCardRemove} />
       </div>
+      <Footer />
     </div>
   );
 }

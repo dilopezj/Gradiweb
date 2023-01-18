@@ -1,5 +1,8 @@
-.container .mt-160 {
-    margin-top: 160px;
+.small{
+    font-size: 9px !important;
+}
+.container .mt-121 {
+    margin-top: 121px;
 }
 
 .container .card-container {
@@ -16,7 +19,7 @@
     top: 0;
     left: 0;
     border-radius: 10px;
-    background: linear-gradient(45deg, black, rgb(58, 56, 56));
+    background: linear-gradient(45deg, black, rgb(87, 84, 84));
     background-repeat: no-repeat;
     backface-visibility: hidden;
     box-shadow: 0 15px 25px rgb(0, 0, 0, .2);
@@ -56,8 +59,9 @@
     margin-right: auto;
 }
 
-.container .card-container .front .flexbox .box:nth-child(1) {
+.container .card-container .front .flexbox .box {
    font-size: 15px;
+   text-align: left;
 }
 
 .container .card-container .back {
@@ -66,7 +70,7 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(45deg, black, rgb(58, 56, 56));
+    background: linear-gradient(45deg, black, rgb(87, 84, 84));
     background-repeat: no-repeat;
     box-shadow: 0 15px 25px rgb(0, 0, 0, .2);
     border-radius: 10px;
@@ -86,6 +90,7 @@
 
 .container .card-container .back .box {
   padding: 0 20px;
+  text-align: right !important;
 }
 
 .container .card-container .back .box span{
@@ -121,7 +126,7 @@
     .container .card-container {
         position: relative;
         min-height: 257px;
-        min-width: 476px;
+        min-width: 523px;
         margin: 0 auto -150px auto;
     }
 

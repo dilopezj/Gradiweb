@@ -1,21 +1,13 @@
 import React from 'react';
 
-import { useAutoAnimate } from '@formkit/auto-animate/react';
-
 import Table from 'react-bootstrap/Table';
 import ItemCard from './ItemCard';
 
 function ListCard({ cards, handleCardChecked, handleCardRemove }) {
-  const [autoAnimateList] = useAutoAnimate();
 
   return (
-    <div className="container w-100 mb-4">
-      <div className="card">
-        <div className="card-header text-center">
-          <h2 style={cards.length > 0 ? {} : { fontStyle: 'italic' }} >{cards.length > 0 ? `Cards List` : 'Your card list is empty'}</h2>
-        </div>
-        <div className="card-body">
-          <Table striped bordered hover responsive variant="dark" className='ListCard'  ref={autoAnimateList}>
+    <div className="container w-100 mb-4" style={cards.length > 0 ? {} : { display: 'none' }} >
+          <Table striped bordered hover responsive variant="dark" className='ListCard'>
             <thead>
               <tr>
                 <th>Credit Card Number</th>
@@ -30,15 +22,13 @@ function ListCard({ cards, handleCardChecked, handleCardRemove }) {
                 : <tr>
                     <td colSpan={5}>
                       <div className="container d-flex flex-column w-50 text-center justify-content-center">
-                        <h4 className='py-3 rounded-3 text-white' style={{ backgroundColor: 'var(--accent-color)' }}>All cards are complete!</h4>
+                        <h4 className='py-3 rounded-3 text-white'>All cards are complete!</h4>
                       </div>
                     </td>
                   </tr>
               }
             </tbody>
-          </Table>         
-        </div>
-      </div>
+          </Table>
     </div>
   );
 }
