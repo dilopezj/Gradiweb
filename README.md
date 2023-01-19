@@ -7,8 +7,8 @@ Gradiweb - [Technical challenge] (https://docs.google.com/presentation/d/1faxn_x
 ![screenshot project](https://github.com/dilopezj/Gradiweb/blob/master/src/assets/pantalla01.png)
 
 
-##Building and Running Open
-
+## Building and Running Open
+ 
    1. Clone the source code
 
           git clone https://github.com/nasa/openmct.git
@@ -22,6 +22,15 @@ Gradiweb - [Technical challenge] (https://docs.google.com/presentation/d/1faxn_x
            `npm start`
 
    Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   
+   
+   ### :warning: Important :warning:
+
+   The following steps are required:
+
+   1) Install a text editor (Visual Studio Code preferably)
+   2) Install Node.JS (it is an application to execute Javascript)
+   3) Install React.JS
 
 
 ## Data in LocalStorage
