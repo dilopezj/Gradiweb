@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+## Encrypt Method 
+### `npm i crypto-js`
+This section has moved here: [https://timetoprogram.com/encrypt-and-decrypt-text-react/]
+     

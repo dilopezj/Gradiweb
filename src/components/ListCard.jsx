@@ -3,7 +3,7 @@ import React from 'react';
 import Table from 'react-bootstrap/Table';
 import ItemCard from './ItemCard';
 
-function ListCard({ cards, handleCardChecked, handleCardRemove }) {
+function ListCard({ cards,  handleCardRemove }) {
 
   return (
     <div className="container w-100 mb-4" style={cards.length > 0 ? {} : { display: 'none' }} >
@@ -18,7 +18,7 @@ function ListCard({ cards, handleCardChecked, handleCardRemove }) {
             </thead>
             <tbody>
               {cards.length > 0
-                ? cards.map(card => <ItemCard key={card.id} card={card} handleCardChecked={handleCardChecked} handleCardRemove={handleCardRemove} />)
+                ? cards.map(card => <ItemCard key={card.id} card={card} handleCardRemove={handleCardRemove} />)
                 : <tr>
                     <td colSpan={5}>
                       <div className="container d-flex flex-column w-50 text-center justify-content-center">

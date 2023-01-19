@@ -10,14 +10,17 @@ function App() {
   const [cards, setCards] = useState([]);
   const [preventEmptySave, setPreventEmptySave] = useState(true);
 
+  
+
   const saveCards = () => {
     if (cards.length < 1 && preventEmptySave) { return; }
     setPreventEmptySave(true);
     localStorage.setItem('cards', JSON.stringify(cards));
+    
   };
 
   const handleAddCard = card => {
-    setCards(prevCards => [card, ...prevCards]);
+    setCards(prevCards => [card, ...prevCards]);    
   };
 
   const handleCardRemove = id => {
