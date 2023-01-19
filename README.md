@@ -11,7 +11,7 @@ Gradiweb - [Technical challenge] (https://docs.google.com/presentation/d/1faxn_x
  
    1. Clone the source code
 
-          git clone https://github.com/nasa/openmct.git
+          git clone https://github.com/dilopezj/Gradiweb.git
 
    2. Install development dependencies. Note: Check the package.json.
 
