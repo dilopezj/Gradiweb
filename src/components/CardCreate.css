@@ -1,6 +1,11 @@
 .small{
     font-size: 9px !important;
 }
+
+.top-cvv{
+    margin-top: -30px;
+}
+
 .container .mt-121 {
     margin-top: 121px;
 }
@@ -141,6 +146,10 @@
         width: 92%;
         margin: 0 14px !important;
     }
+
+    .top-cvv{
+        margin-top: 0px !important;
+    }
 }
 
 @media only screen and (min-width: 200px) and (max-width: 319px) {
@@ -161,6 +170,10 @@
         height: 92%;
         width: 92%;
         margin: 0 14px !important;
+    }
+
+    .top-cvv{
+        margin-top: 0px !important;
     }
 }
 

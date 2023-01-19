@@ -137,7 +137,7 @@ function CardCreate({ handleAddCard }) {
               <Col><select className='form-control form-select' value={currenyState.currentYear} onChange={e => { setCurrentState({...currenyState, currentYear: e.target.value}); }} id={`${id}-year`} name={`${id}-year`} required autoComplete='off'>
                <option value={''}></option> {yearSelects.map((yearSelect) => <option value={yearSelect.value} key={yearSelect.value} >{yearSelect.label}</option>)} </select> </Col>
               <Col></Col>
-              <Col><label className='form-label' htmlFor={`${id}-cvv`}>cvv</label><input className='form-control number' value={currenyState.currentCvv} onChange={actualizarState} name={'currentCvv'} type='text' id={`${id}-cvv`} required autoComplete='off' maxLength={3} minLength={3} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} pattern="[0-9]+" ></input></Col>
+              <Col className="top-cvv"><label className='form-label' htmlFor={`${id}-cvv`}>cvv</label><input className='form-control number' value={currenyState.currentCvv} onChange={actualizarState} name={'currentCvv'} type='text' id={`${id}-cvv`} required autoComplete='off' maxLength={3} minLength={3} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} pattern="[0-9]+" ></input></Col>
             </Row>
           </Container>
         </div>
