@@ -14,7 +14,6 @@ import yearSelects from '../data/Json-year.json';
 
 import { v4 as genUUID4 } from 'uuid';
 
-
 function CardCreate({ handleAddCard }) {
   const id = useId();
   const secretPass = "XkhZG4fW2t2W";
@@ -29,6 +28,13 @@ function CardCreate({ handleAddCard }) {
 
   const handleMouseLeave = () => {
     setCurrentState({...currenyState, hover: false});
+  };
+
+  const actualizarState = e => {
+    const esValido = e.target.validity.valid;
+    console.log(esValido);
+    if(e.target.validity.valid) 
+    setCurrentState({...currenyState, [e.target.name]: e.target.value});  
   };
 
   const encryptData = () => {
@@ -67,6 +73,8 @@ function CardCreate({ handleAddCard }) {
       currentText: '', currentNumber01: '', currentNumber02: '', currentNumber03: '', currentNumber04: '', currentMonth: '', 
       currentYear: '', currentCvv: '', encrptedData: '' });     
   };
+
+  
   
   if (currenyState.showMessage) {
     alertDiv = <Alert variant={currenyState.message.variant} onClose={() => setCurrentState({...currenyState, showMessage: false})} dismissible ><p> {currenyState.message.text} </p> </Alert>;
@@ -124,7 +132,7 @@ function CardCreate({ handleAddCard }) {
               <Col><select className='form-control form-select' value={currenyState.currentYear} onChange={e => { setCurrentState({...currenyState, currentYear: e.target.value}); }} id={`${id}-year`} name={`${id}-year`} required autoComplete='off'>
                <option value={''}></option> {yearSelects.map((yearSelect) => <option value={yearSelect.value} key={yearSelect.value} >{yearSelect.label}</option>)} </select> </Col>
               <Col></Col>
-              <Col><label className='form-label' htmlFor={`${id}-cvv`}>cvv</label><input className='form-control number' value={currenyState.currentCvv} onChange={e => { setCurrentState({...currenyState, currentCvv: e.target.value}); }} type='text' id={`${id}-cvv`} required autoComplete='off' maxLength={3} minLength={3} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} pattern="[0-9]*" ></input></Col>
+              <Col><label className='form-label' htmlFor={`${id}-cvv`}>cvv</label><input className='form-control number' value={currenyState.currentCvv} onChange={actualizarState} name={'currentCvv'} type='text' id={`${id}-cvv`} required autoComplete='off' maxLength={3} minLength={3} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} pattern="[0-9]*" ></input></Col>
             </Row>
           </Container>
         </div>
