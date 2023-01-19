@@ -143,3 +143,24 @@
     }
 }
 
+@media only screen and (min-width: 200px) and (max-width: 319px) {
+    .container .card-container {
+        position: relative;
+        min-width: var(--width) !important;
+        width: var(--width) !important;
+        margin: 0 auto -150px auto !important;
+    }
+
+    .container .card-container .front {
+        height: 92%;
+        width: 92%;
+        margin: 0 14px !important;        
+    }
+
+    .container .card-container .back {
+        height: 92%;
+        width: 92%;
+        margin: 0 14px !important;
+    }
+}
+

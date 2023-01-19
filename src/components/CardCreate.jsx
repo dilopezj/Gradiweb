@@ -20,7 +20,7 @@ function CardCreate({ handleAddCard }) {
   let alertDiv = '';
 
   const [currenyState, setCurrentState] = useState({ currentText: "", currentNumber01:  "", currentNumber02: "", currentNumber03: "", currentNumber04: "", currentMonth: "", currentYear:"",  currentCvv: "",
-    hover: false,  showMessage: false,  message: { variant: '', text: '' }, encrptedData: ""  });
+    hover: false,  showMessage: false,  message: { variant: '', text: '' }, encrptedData: "", focus: ""});
   
   const handleMouseEnter = () => {
     setCurrentState({...currenyState, hover: true});
@@ -30,11 +30,17 @@ function CardCreate({ handleAddCard }) {
     setCurrentState({...currenyState, hover: false});
   };
 
+  const handleFocusChange = (e) => {
+    setCurrentState({
+      ...currenyState,
+      focus : e.target.id
+    })
+  }
+
   const actualizarState = e => {
-    const esValido = e.target.validity.valid;
-    console.log(esValido);
-    if(e.target.validity.valid) 
-    setCurrentState({...currenyState, [e.target.name]: e.target.value});  
+    if (!isNaN(e.target.value)) {
+      setCurrentState({...currenyState, [e.target.name]: e.target.value});  
+    }
   };
 
   const encryptData = () => {
@@ -71,10 +77,9 @@ function CardCreate({ handleAddCard }) {
       handleAddCard(newCard); // newCard  is a object for dataset             
       setCurrentState({...currenyState, showMessage: true, message: { variant: 'success', text: 'Data saved successfully'}, 
       currentText: '', currentNumber01: '', currentNumber02: '', currentNumber03: '', currentNumber04: '', currentMonth: '', 
-      currentYear: '', currentCvv: '', encrptedData: '' });     
+      currentYear: '', currentCvv: '', encrptedData: ''});     
   };
-
-  
+ 
   
   if (currenyState.showMessage) {
     alertDiv = <Alert variant={currenyState.message.variant} onClose={() => setCurrentState({...currenyState, showMessage: false})} dismissible ><p> {currenyState.message.text} </p> </Alert>;
@@ -118,10 +123,10 @@ function CardCreate({ handleAddCard }) {
           <Container>
             <Row><Col xs lg="3"><label className='form-label mt-3' htmlFor={`${id}-numberCard`}>Credit Card Number</label></Col></Row>
             <Row xs={1} md={4} lg={4}>
-              <Col><input className='form-control number' value={currenyState.currentNumber01} onChange={e => { setCurrentState({...currenyState, currentNumber01: e.target.value}); }} type='text' id={`${id}-number01`} required autoComplete='off' maxLength={4} minLength={4} pattern="[0-9]*" ></input></Col>
-              <Col><input className='form-control number' value={currenyState.currentNumber02} onChange={e => { setCurrentState({...currenyState, currentNumber02: e.target.value}); }} type='text' id={`${id}-number02`} required autoComplete='off' maxLength={4} minLength={4} pattern="[0-9]*" ></input></Col>
-              <Col><input className='form-control number' value={currenyState.currentNumber03} onChange={e => { setCurrentState({...currenyState, currentNumber03: e.target.value}); }} type='text' id={`${id}-number03`} required autoComplete='off' maxLength={4} minLength={4} pattern="[0-9]*" ></input></Col>
-              <Col><input className='form-control number' value={currenyState.currentNumber04} onChange={e => { setCurrentState({...currenyState, currentNumber04: e.target.value}); }} type='text' id={`${id}-number04`} required autoComplete='off' maxLength={4} minLength={4} pattern="[0-9]*" ></input></Col>
+              <Col><input className='form-control number' value={currenyState.currentNumber01} onChange={actualizarState} name={'currentNumber01'} type='text' id={`${id}-number01`} required autoComplete='off' maxLength={4} minLength={4} pattern="[0-9]*" onFocus={handleFocusChange} focused={currenyState.focus} ></input></Col>
+              <Col><input className='form-control number' value={currenyState.currentNumber02} onChange={actualizarState} name={'currentNumber02'} type='text' id={`${id}-number02`} required autoComplete='off' maxLength={4} minLength={4} pattern="[0-9]*" onFocus={handleFocusChange}></input></Col>
+              <Col><input className='form-control number' value={currenyState.currentNumber03} onChange={actualizarState} name={'currentNumber03'} type='text' id={`${id}-number03`} required autoComplete='off' maxLength={4} minLength={4} pattern="[0-9]*" onFocus={handleFocusChange}></input></Col>
+              <Col><input className='form-control number' value={currenyState.currentNumber04} onChange={actualizarState} name={'currentNumber04'} type='text' id={`${id}-number04`} required autoComplete='off' maxLength={4} minLength={4} pattern="[0-9]*" onFocus={handleFocusChange}></input></Col>
             </Row>
             <Row><Col><label className='form-label mt-3' htmlFor={`${id}-name`}>Card Holder Name</label></Col></Row>
             <Row><Col><input className='form-control' value={currenyState.currentText} onChange={e => { setCurrentState({...currenyState, currentText: e.target.value}); }} type='text' id={`${id}-name`} required autoComplete='off' placeholder='Jhon Doe' maxLength={60} pattern="[a-z A-Z À-ÿ 0-9]*" ></input></Col></Row>
@@ -132,7 +137,7 @@ function CardCreate({ handleAddCard }) {
               <Col><select className='form-control form-select' value={currenyState.currentYear} onChange={e => { setCurrentState({...currenyState, currentYear: e.target.value}); }} id={`${id}-year`} name={`${id}-year`} required autoComplete='off'>
                <option value={''}></option> {yearSelects.map((yearSelect) => <option value={yearSelect.value} key={yearSelect.value} >{yearSelect.label}</option>)} </select> </Col>
               <Col></Col>
-              <Col><label className='form-label' htmlFor={`${id}-cvv`}>cvv</label><input className='form-control number' value={currenyState.currentCvv} onChange={actualizarState} name={'currentCvv'} type='text' id={`${id}-cvv`} required autoComplete='off' maxLength={3} minLength={3} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} pattern="[0-9]*" ></input></Col>
+              <Col><label className='form-label' htmlFor={`${id}-cvv`}>cvv</label><input className='form-control number' value={currenyState.currentCvv} onChange={actualizarState} name={'currentCvv'} type='text' id={`${id}-cvv`} required autoComplete='off' maxLength={3} minLength={3} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} pattern="[0-9]+" ></input></Col>
             </Row>
           </Container>
         </div>
