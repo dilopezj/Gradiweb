@@ -1,4 +1,14 @@
-# Getting Started with Create React App
+# Technical Challenge
+
+### DOM manipulation and layout
+
+Gradiweb - [Technical challenge] (https://docs.google.com/presentation/d/1faxn_x_dr3WpUAVl-0v2hwOaPCj-zHN3W5evtL7ymZY/edit#slide=id.ge9c4a76015_2_0)
+
+![screenshot project](URL de la imagen generada por el servicio de alojamiento o GitHub)
+
+
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
